@@ -1,7 +1,6 @@
 # Assignment 2: Collective Communication
 
-
-## Setup
+## Background
 
 **Environment:**
 
@@ -52,3 +51,10 @@ In both cases, the input should be a random vector on every machine and the outp
 -   Summarize your observations for Task 2, 3, 4 in a report up to 3 pages in length. You can use additional pages for tables, figures or any other supporting data.
 -   At the end of the report, please include a short section on contributions from each student in the group.
 -   Create a zip file with both of the above and upload to Canvas.
+
+## Setup
+
+- Install the pytorch packages that he mentioned on all nodes
+- Able to ssh from node0 to all other nodes
+- Generated keys on all the nodes and added the public keys to authorized_keys on all nodes. This means we should be able to ssh from one node to any other node
+- main.py should be present on all nodes
