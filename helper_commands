@@ -1,0 +1,33 @@
+# Ordered by node number
+ssh -i ~/.ssh/id_rsa -p 27410 rajeshwi@c220g5-120112.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27411 rajeshwi@c220g5-120112.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27412 rajeshwi@c220g5-120102.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27411 rajeshwi@c220g5-120113.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27411 rajeshwi@c220g5-120108.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27412 rajeshwi@c220g5-120113.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27413 rajeshwi@c220g5-120102.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27412 rajeshwi@c220g5-120108.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27413 rajeshwi@c220g5-120113.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27413 rajeshwi@c220g5-120108.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27412 rajeshwi@c220g5-120112.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27413 rajeshwi@c220g5-120112.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27410 rajeshwi@c220g5-120102.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27411 rajeshwi@c220g5-120102.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27410 rajeshwi@c220g5-120108.wisc.cloudlab.us
+ssh -i ~/.ssh/id_rsa -p 27410 rajeshwi@c220g5-120113.wisc.cloudlab.us
+
+# SCP a file from node0 to any
+scp main.py node1:~/
+
+# Installed dependencies
+sudo apt-get update --fix-missing
+sudo apt install -y python3-pip
+pip3 install numpy 
+pip3 install torch==1.4.0+cpu -f https://download.pytorch.org/whl/torch\_stable.html
+
+# Key generation to enable all-node ssh
+ssh-keygen -t rsa -C "node15"
+exec ssh-agent bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub > "Add to cloudlab"
