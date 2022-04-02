@@ -7,7 +7,7 @@ from torch import distributed as dist
 
 DEVICE = "cpu"
 TENSOR_SIZE = 1024
-
+# world size - no. of processes participating in the job i.e. max rank value (+1 if 0 initialized, which I think it is based on the code).
 def init_process(master_ip, rank, world_size):
     dist.init_process_group(backend="gloo",
                             init_method="tcp://" + master_ip + ":6585",
@@ -16,7 +16,7 @@ def init_process(master_ip, rank, world_size):
 
 
 def main():
-    # Create a random tensor
+    # Create a random tensor 1 dimensional
     t = torch.rand(TENSOR_SIZE)
     # Send the tensor to rank 0
     if dist.get_rank() == 0:
