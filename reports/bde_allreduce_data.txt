@@ -1,0 +1,108 @@
+Data (16 nodes, varying size)
+1 KB (tensor of size 256)
+Rank 15 finished BDE all reduce in  0.019916057586669922  seconds
+Rank 11 finished BDE all reduce in  0.053571224212646484  seconds
+Rank 7 finished BDE all reduce in  0.08130431175231934  seconds
+Rank 10 finished BDE all reduce in  0.06394100189208984  seconds
+Rank 13 finished BDE all reduce in  0.030871868133544922  seconds
+Rank 14 finished BDE all reduce in  0.020485401153564453  seconds
+Rank 0 finished BDE all reduce in  0.15515780448913574  seconds
+Rank 9 finished BDE all reduce in  0.07586789131164551  seconds
+Rank 12 finished BDE all reduce in  0.04300117492675781  seconds
+Rank 2 finished BDE all reduce in  0.1414809226989746  seconds
+Rank 3 finished BDE all reduce in  0.11213088035583496  seconds
+Rank 5 finished BDE all reduce in  0.10692501068115234  seconds
+Rank 1 finished BDE all reduce in  0.16342735290527344  seconds
+Rank 4 finished BDE all reduce in  0.10577774047851562  seconds
+Rank 6 finished BDE all reduce in  0.0945425033569336  seconds
+Rank 8 finished BDE all reduce in  0.09426569938659668  seconds
+
+10 KB
+Rank 15 finished BDE all reduce in  0.02171921730041504  seconds
+Rank 13 finished BDE all reduce in  0.032411813735961914  seconds
+Rank 11 finished BDE all reduce in  0.05511474609375  seconds
+Rank 10 finished BDE all reduce in  0.06685757637023926  seconds
+Rank 14 finished BDE all reduce in  0.0219118595123291  seconds
+Rank 12 finished BDE all reduce in  0.04491162300109863  seconds
+Rank 0 finished BDE all reduce in  0.179734468460083  seconds
+Rank 5 finished BDE all reduce in  0.10640835762023926  seconds
+Rank 9 finished BDE all reduce in  0.07789492607116699  seconds
+Rank 3 finished BDE all reduce in  0.11566591262817383  seconds
+Rank 2 finished BDE all reduce in  0.15621447563171387  seconds
+Rank 6 finished BDE all reduce in  0.09482145309448242  seconds
+Rank 8 finished BDE all reduce in  0.09655141830444336  seconds
+Rank 7 finished BDE all reduce in  0.08339667320251465  seconds
+Rank 1 finished BDE all reduce in  0.16764402389526367  seconds
+Rank 4 finished BDE all reduce in  0.105224609375  seconds
+
+100 KB (25600)
+Rank 15 finished BDE all reduce in  0.03154778480529785  seconds
+Rank 10 finished BDE all reduce in  0.06920599937438965  seconds
+Rank 14 finished BDE all reduce in  0.03096771240234375  seconds
+Rank 11 finished BDE all reduce in  0.05865836143493652  seconds
+Rank 13 finished BDE all reduce in  0.04401755332946777  seconds
+Rank 7 finished BDE all reduce in  0.08764410018920898  seconds
+Rank 6 finished BDE all reduce in  0.09933996200561523  seconds
+Rank 12 finished BDE all reduce in  0.04822230339050293  seconds
+Rank 9 finished BDE all reduce in  0.08245372772216797  seconds
+Rank 5 finished BDE all reduce in  0.11260509490966797  seconds
+Rank 2 finished BDE all reduce in  0.14003634452819824  seconds
+Rank 3 finished BDE all reduce in  0.12345647811889648  seconds
+Rank 0 finished BDE all reduce in  0.1639413833618164  seconds
+Rank 8 finished BDE all reduce in  0.10143065452575684  seconds
+Rank 4 finished BDE all reduce in  0.11213994026184082  seconds
+Rank 1 finished BDE all reduce in  0.1561594009399414  seconds
+
+1M (256000)
+Rank 13 finished BDE all reduce in  0.1495053768157959  seconds
+Rank 14 finished BDE all reduce in  0.14743733406066895  seconds
+Rank 10 finished BDE all reduce in  0.19426441192626953  seconds
+Rank 5 finished BDE all reduce in  0.23609375953674316  seconds
+Rank 9 finished BDE all reduce in  0.20170187950134277  seconds
+Rank 12 finished BDE all reduce in  0.17294001579284668  seconds
+Rank 6 finished BDE all reduce in  0.22584247589111328  seconds
+Rank 15 finished BDE all reduce in  0.15425825119018555  seconds
+Rank 8 finished BDE all reduce in  0.2269744873046875  seconds
+Rank 2 finished BDE all reduce in  0.27896928787231445  seconds
+Rank 1 finished BDE all reduce in  0.2930583953857422  seconds
+Rank 0 finished BDE all reduce in  0.30416083335876465  seconds
+Rank 4 finished BDE all reduce in  0.2415761947631836  seconds
+Rank 11 finished BDE all reduce in  0.1924762725830078  seconds
+Rank 7 finished BDE all reduce in  0.2204725742340088  seconds
+Rank 3 finished BDE all reduce in  0.25711536407470703  seconds
+
+10M (2560000)
+Rank 13 finished BDE all reduce in  1.0137851238250732  seconds
+Rank 9 finished BDE all reduce in  1.063645839691162  seconds
+Rank 5 finished BDE all reduce in  1.1053993701934814  seconds
+Rank 1 finished BDE all reduce in  1.1647298336029053  seconds
+Rank 11 finished BDE all reduce in  1.0569703578948975  seconds
+Rank 15 finished BDE all reduce in  1.060976505279541  seconds
+Rank 3 finished BDE all reduce in  1.1424751281738281  seconds
+Rank 7 finished BDE all reduce in  1.121530532836914  seconds
+Rank 0 finished BDE all reduce in  1.3246426582336426  seconds
+Rank 8 finished BDE all reduce in  1.2489595413208008  seconds
+Rank 14 finished BDE all reduce in  1.2017302513122559  seconds
+Rank 12 finished BDE all reduce in  1.2141151428222656  seconds
+Rank 6 finished BDE all reduce in  1.2586603164672852  seconds
+Rank 4 finished BDE all reduce in  1.2762742042541504  seconds
+Rank 2 finished BDE all reduce in  1.3485307693481445  seconds
+Rank 10 finished BDE all reduce in  1.2613070011138916  seconds
+
+100M (25600000)
+Rank 0 finished BDE all reduce in  9.619036197662354  seconds
+Rank 8 finished BDE all reduce in  9.534441471099854  seconds
+Rank 10 finished BDE all reduce in  9.607277870178223  seconds
+Rank 2 finished BDE all reduce in  9.70078992843628  seconds
+Rank 12 finished BDE all reduce in  9.702075242996216  seconds
+Rank 4 finished BDE all reduce in  9.790863990783691  seconds
+Rank 14 finished BDE all reduce in  9.795534133911133  seconds
+Rank 6 finished BDE all reduce in  9.846272706985474  seconds
+Rank 9 finished BDE all reduce in  10.169606685638428  seconds
+Rank 1 finished BDE all reduce in  10.237287282943726  seconds
+Rank 15 finished BDE all reduce in  10.311035394668579  seconds
+Rank 7 finished BDE all reduce in  10.38403034210205  seconds
+Rank 11 finished BDE all reduce in  10.761319398880005  seconds
+Rank 3 finished BDE all reduce in  10.886146545410156  seconds
+Rank 13 finished BDE all reduce in  10.842405796051025  seconds
+Rank 5 finished BDE all reduce in  10.938234806060791  seconds

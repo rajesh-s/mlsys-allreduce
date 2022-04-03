@@ -1,0 +1,107 @@
+./run_ring.sh -n 16 -t 256
+Rank 0 finished allreduce in  0.18942499160766602  seconds
+Rank 6 finished allreduce in  0.11844015121459961  seconds
+Rank 1 finished allreduce in  0.18800973892211914  seconds
+Rank 5 finished allreduce in  0.13027501106262207  seconds
+Rank 3 finished allreduce in  0.13541364669799805  seconds
+Rank 4 finished allreduce in  0.12818408012390137  seconds
+Rank 15 finished allreduce in  0.041956186294555664  seconds
+Rank 13 finished allreduce in  0.05259346961975098  seconds
+Rank 11 finished allreduce in  0.0748903751373291  seconds
+Rank 2 finished allreduce in  0.17584681510925293  seconds
+Rank 14 finished allreduce in  0.04286980628967285  seconds
+Rank 9 finished allreduce in  0.09813046455383301  seconds
+Rank 7 finished allreduce in  0.10834932327270508  seconds
+Rank 12 finished allreduce in  0.0642695426940918  seconds
+Rank 8 finished allreduce in  0.12087416648864746  seconds
+Rank 10 finished allreduce in  0.08717799186706543  seconds
+
+./run_ring.sh -n 16 -t 2560
+Rank 0 finished allreduce in  0.18195819854736328  seconds
+Rank 15 finished allreduce in  0.0444490909576416  seconds
+Rank 1 finished allreduce in  0.17118453979492188  seconds
+Rank 5 finished allreduce in  0.13245344161987305  seconds
+Rank 7 finished allreduce in  0.11052083969116211  seconds
+Rank 9 finished allreduce in  0.09884428977966309  seconds
+Rank 11 finished allreduce in  0.0770559310913086  seconds
+Rank 3 finished allreduce in  0.14173078536987305  seconds
+Rank 13 finished allreduce in  0.05537867546081543  seconds
+Rank 6 finished allreduce in  0.11966085433959961  seconds
+Rank 2 finished allreduce in  0.1611952781677246  seconds
+Rank 14 finished allreduce in  0.04422640800476074  seconds
+Rank 8 finished allreduce in  0.11002612113952637  seconds
+Rank 10 finished allreduce in  0.08913922309875488  seconds
+Rank 4 finished allreduce in  0.13077092170715332  seconds
+Rank 12 finished allreduce in  0.06715750694274902  seconds
+
+./run_ring.sh -n 16 -t 25600
+Rank 0 finished allreduce in  0.18549799919128418  seconds
+Rank 1 finished allreduce in  0.1819009780883789  seconds
+Rank 3 finished allreduce in  0.14026403427124023  seconds
+Rank 15 finished allreduce in  0.04598498344421387  seconds
+Rank 11 finished allreduce in  0.08037710189819336  seconds
+Rank 13 finished allreduce in  0.05794382095336914  seconds
+Rank 4 finished allreduce in  0.13311481475830078  seconds
+Rank 2 finished allreduce in  0.1721796989440918  seconds
+Rank 5 finished allreduce in  0.13645219802856445  seconds
+Rank 9 finished allreduce in  0.09894132614135742  seconds
+Rank 6 finished allreduce in  0.11978578567504883  seconds
+Rank 12 finished allreduce in  0.06864261627197266  seconds
+Rank 8 finished allreduce in  0.11547493934631348  seconds
+Rank 7 finished allreduce in  0.11031532287597656  seconds
+Rank 14 finished allreduce in  0.04528641700744629  seconds
+Rank 10 finished allreduce in  0.08984637260437012  seconds
+
+./run_ring.sh -n 16 -t 256000
+Rank 0 finished allreduce in  0.26637983322143555  seconds
+Rank 15 finished allreduce in  0.11522960662841797  seconds
+Rank 13 finished allreduce in  0.13918042182922363  seconds
+Rank 1 finished allreduce in  0.26329493522644043  seconds
+Rank 14 finished allreduce in  0.1282360553741455  seconds
+Rank 11 finished allreduce in  0.14986205101013184  seconds
+Rank 2 finished allreduce in  0.2532777786254883  seconds
+Rank 5 finished allreduce in  0.21759486198425293  seconds
+Rank 7 finished allreduce in  0.1839430332183838  seconds
+Rank 3 finished allreduce in  0.21842741966247559  seconds
+Rank 9 finished allreduce in  0.17026901245117188  seconds
+Rank 12 finished allreduce in  0.14473199844360352  seconds
+Rank 6 finished allreduce in  0.19678831100463867  seconds
+Rank 10 finished allreduce in  0.16443419456481934  seconds
+Rank 8 finished allreduce in  0.19873332977294922  seconds
+Rank 4 finished allreduce in  0.20763134956359863  seconds
+
+./run_ring.sh -n 16 -t 2560000
+Rank 0 finished allreduce in  1.6585454940795898  seconds
+Rank 1 finished allreduce in  1.6417152881622314  seconds
+Rank 15 finished allreduce in  1.51625657081604  seconds
+Rank 2 finished allreduce in  1.6436207294464111  seconds
+Rank 13 finished allreduce in  1.5290937423706055  seconds
+Rank 3 finished allreduce in  1.6243505477905273  seconds
+Rank 14 finished allreduce in  1.5161726474761963  seconds
+Rank 5 finished allreduce in  1.6146354675292969  seconds
+Rank 8 finished allreduce in  1.61655855178833  seconds
+Rank 11 finished allreduce in  1.5707597732543945  seconds
+Rank 4 finished allreduce in  1.626641035079956  seconds
+Rank 7 finished allreduce in  1.612499713897705  seconds
+Rank 9 finished allreduce in  1.595839262008667  seconds
+Rank 6 finished allreduce in  1.6177878379821777  seconds
+Rank 12 finished allreduce in  1.5644254684448242  seconds
+Rank 10 finished allreduce in  1.5905969142913818  seconds
+
+./run_ring.sh -n 16 -t 25600000
+Rank 11 finished allreduce in  11.49969482421875  seconds
+Rank 12 finished allreduce in  11.42510986328125  seconds
+Rank 9 finished allreduce in  11.625652074813843  seconds
+Rank 10 finished allreduce in  11.709723234176636  seconds
+Rank 0 finished allreduce in  12.023798942565918  seconds
+Rank 14 finished allreduce in  11.798826217651367  seconds
+Rank 13 finished allreduce in  11.830976963043213  seconds
+Rank 15 finished allreduce in  11.86952257156372  seconds
+Rank 7 finished allreduce in  12.046046018600464  seconds
+Rank 8 finished allreduce in  12.014732837677002  seconds
+Rank 5 finished allreduce in  12.252078771591187  seconds
+Rank 6 finished allreduce in  12.217126369476318  seconds
+Rank 1 finished allreduce in  12.295151710510254  seconds
+Rank 3 finished allreduce in  12.328187704086304  seconds
+Rank 4 finished allreduce in  12.316291093826294  seconds
+Rank 2 finished allreduce in  12.330386877059937  seconds
