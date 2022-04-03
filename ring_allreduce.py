@@ -21,14 +21,10 @@ def main(tensor_size):
     # Create a random tensor
     t = torch.rand(tensor_size)
     t = list(t.split(int(tensor_size/world_size)))
-    #print(len(t))
-    #print(tensor_size)
-    #print(world_size)
-    #print(t)
     # Create send and receive buffers
     zero_buffer = torch.zeros(tensor_size)
     recv_buffers = list(zero_buffer.split(int(tensor_size/world_size)))
-    #s = time.time()
+    s = time.time()
     # Reduce-scatter loop
     for i in range(1, world_size):
         if (rank % 2) == 0:
@@ -60,9 +56,8 @@ def main(tensor_size):
 
             # Send a tensor to the next machine
             dist.send(t[(rank + 1 - i + world_size) % world_size], dst=(rank + 1) % world_size)
-    #e = time.time()
-    #print("Finished allreduce in ", e-s, " seconds")
-    #print(recv_buffers)
+    e = time.time()
+    print("Finished allreduce in ", e-s, " seconds")
     print(torch.cat(t))
 
 if __name__ == "__main__":
