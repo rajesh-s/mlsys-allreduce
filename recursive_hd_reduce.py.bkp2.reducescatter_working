@@ -25,9 +25,7 @@ def main(rank, num_nodes, tensor_size):
     print("Rank",rank,"Before",tensor)
     bde_reduce_scatter(rank, tensor, 0, len(tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
     split_tensor = list(torch.split(tensor, int(TENSOR_SIZE/num_nodes))) # Split tensor into chunks based on number of participating nodes
-    print("Rank",rank,"After Reduce Scatter",tensor)
-    bde_all_gather(rank, tensor, 0, len(tensor)-1, 0 , num_nodes-1)
-    print("Rank",rank,"After All Gather",tensor)
+    print("Rank",rank,"After",tensor)
     #split_tensor[rank] = bde_reduce_scatter(rank, tensor, 0, len(tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
     #print("x[",rank,"] = ",split_tensor[rank])
     #e = time.time()
@@ -73,41 +71,6 @@ def bde_reduce_scatter(rank, x, tensor_left, tensor_right, rank_left, rank_right
     else:
         bde_reduce_scatter(rank, x, tensor_mid+1, tensor_right, rank_mid+1, rank_right)
 
-# BDE AllGather
-
-def bde_all_gather(rank, x, tensor_left, tensor_right, rank_left, rank_right):
-    #print("Rank",rank,"x",x,"tensor_left",tensor_left,"tensor_right",tensor_right,"rank_left",rank_left,"rank_right",rank_right)
-    if rank_left == rank_right:
-        return
-
-    rank_size = rank_right - rank_left + 1
-    tensor_size = tensor_right - tensor_left +1
-    tensor_mid = (tensor_left + tensor_right) // 2
-    rank_mid = (rank_left + rank_right) // 2
-
-    if rank <= rank_mid:
-        partner = rank + (rank_size/2)
-    else:
-        partner = rank - (rank_size/2)
-    partner = int(partner)
-
-    if rank <= rank_mid:
-        bde_all_gather(rank, x, tensor_left, tensor_mid, rank_left, rank_mid)
-    else:
-        bde_all_gather(rank, x, tensor_mid+1, tensor_right, rank_mid+1, rank_right)
-
-    if rank <= rank_mid:
-        #print("Rank",rank,"sending",x[tensor_left:tensor_mid+1],"from",x)
-        dist.send(x[tensor_left:tensor_mid+1], dst=partner)
-        recv_buffer =  x[tensor_mid+1:tensor_right+1]
-        dist.recv(recv_buffer, src=partner)
-        #print("Rank",rank,"receiving",recv_buffer)
-    else:
-        recv_buffer = x[tensor_left:tensor_mid+1]
-        dist.recv(recv_buffer, src=partner)
-        #print("Rank",rank,"receiving",recv_buffer)
-        #print("Rank",rank,"sending",x[tensor_left:tensor_mid+1],"from",x)
-        dist.send(x[tensor_mid+1:tensor_right+1], dst=partner)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

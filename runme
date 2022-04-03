@@ -1,0 +1,3 @@
+scp recursive_hd_reduce.py node1:~/
+scp recursive_hd_reduce.py node2:~/
+scp recursive_hd_reduce.py node3:~/

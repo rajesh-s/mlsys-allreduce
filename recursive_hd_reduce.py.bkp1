@@ -1,0 +1,80 @@
+import argparse
+import torch
+import logging
+import time
+
+from torch import distributed as dist
+
+DEVICE = "cpu"
+TENSOR_SIZE = 8
+
+def init_process(master_ip, rank, world_size):
+    dist.init_process_group(backend="gloo",
+                            init_method="tcp://" + master_ip + ":6585",
+                            rank=rank,
+                            world_size=world_size)
+
+def main(rank, num_nodes, tensor_size):
+    # Create a random tensor
+    tensor = torch.arange(TENSOR_SIZE) # TBD: Easier to test with regular integers t = torch.rand(TENSOR_SIZE)
+    split_tensor = list(torch.split(tensor, int(TENSOR_SIZE/num_nodes))) # Split tensor into chunks based on number of participating nodes
+
+    s = time.time()
+    print("Split Tensor:",split_tensor)
+    for j in range(len(split_tensor)):
+        split_tensor[j] = bde_reduce_scatter(rank, split_tensor[j], 0, len(split_tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
+        print("x[",j,"] = ",split_tensor[j])
+    e = time.time()
+    print("Finished BDE reduce scatter in ", e-s, " seconds")
+
+# BDE Reduce-Scatter
+
+def bde_reduce_scatter(rank, x, tensor_left, tensor_right, rank_left, rank_right):
+    print("Rank:",rank)
+    if rank_left == rank_right:
+        return x
+    rank_size = rank_right - rank_left + 1
+    tensor_size = tensor_right - tensor_left + 1
+    tensor_mid = (tensor_left + tensor_right) // 2
+    rank_mid = (rank_left + rank_right) // 2
+    if rank <= rank_mid:
+        partner = rank + (rank_size/2)
+    else:
+        partner = rank - (rank_size/2)
+    partner = int(partner)
+    print("Partner of",rank,"is",partner)
+    if rank <= rank_mid:
+        print("Rank",rank,"is sending",x[tensor_mid+1:tensor_right+1],"of len",len(x[tensor_mid+1:tensor_right+1]))
+        dist.send(x[tensor_mid+1:tensor_right+1], dst=partner)
+        recv_buffer =  x[tensor_left:tensor_mid+1] #torch.zeros(len(x[tensor_left:tensor_mid+1]))
+        dist.recv(recv_buffer, src=partner)
+        x[tensor_left:tensor_mid+1] = x[tensor_left:tensor_mid+1] + recv_buffer
+    else:
+        recv_buffer = x[tensor_mid+1:tensor_right+1]  # torch.zeros(len(x[tensor_mid+1:tensor_right+1]))
+        print("Rank",rank,"is expected to receive len",len(x[tensor_mid+1:tensor_right+1]))
+        dist.recv(recv_buffer, src=partner)
+        print("Received something")
+        x[tensor_mid+1:tensor_right+1] = x[tensor_mid+1:tensor_right+1] + recv_buffer
+        dist.send(x[tensor_left:tensor_mid+1], dst=partner)
+
+    if rank <= rank_mid:
+        bde_reduce_scatter(rank, x, tensor_left, tensor_mid, rank_left, rank_mid)
+    else:
+        bde_reduce_scatter(rank, x, tensor_mid+1, tensor_right, rank_mid+1, rank_right)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--master-ip", "-m", required=True, type=str)
+    parser.add_argument("--num-nodes", "-n", required=True, type=int)
+    parser.add_argument("--rank", "-r", required=True, type=int)
+    parser.add_argument("--tensor-size", "-t", required=True, type=int)
+
+
+    args = parser.parse_args()
+    print("Rank",args.rank,"entered main")
+    init_process(master_ip=args.master_ip,
+                 rank=args.rank,
+                 world_size=args.num_nodes)
+    main(rank=args.rank, num_nodes=args.num_nodes, tensor_size=args.tensor_size)
+
