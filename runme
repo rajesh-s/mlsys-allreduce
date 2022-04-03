@@ -1,3 +1,15 @@
 scp recursive_hd_reduce.py node1:~/
 scp recursive_hd_reduce.py node2:~/
 scp recursive_hd_reduce.py node3:~/
+scp recursive_hd_reduce.py node4:~/
+scp recursive_hd_reduce.py node5:~/
+scp recursive_hd_reduce.py node6:~/
+scp recursive_hd_reduce.py node7:~/
+scp recursive_hd_reduce.py node8:~/
+scp recursive_hd_reduce.py node9:~/
+scp recursive_hd_reduce.py node10:~/
+scp recursive_hd_reduce.py node11:~/
+scp recursive_hd_reduce.py node12:~/
+scp recursive_hd_reduce.py node13:~/
+scp recursive_hd_reduce.py node14:~/
+scp recursive_hd_reduce.py node15:~/

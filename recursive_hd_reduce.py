@@ -7,7 +7,7 @@ import copy
 from torch import distributed as dist
 
 DEVICE = "cpu"
-TENSOR_SIZE = 4
+#TENSOR_SIZE = 4
 
 def init_process(master_ip, rank, world_size):
     dist.init_process_group(backend="gloo",
@@ -17,21 +17,22 @@ def init_process(master_ip, rank, world_size):
 
 def main(rank, num_nodes, tensor_size):
     # Create a random tensor
+    tensor = torch.rand(tensor_size)
     #tensor = torch.arange(TENSOR_SIZE) # TBD: Easier to test with regular integers t = torch.rand(TENSOR_SIZE)
-    tensor = torch.tensor([0,1,2,3])
-    #s = time.time()
+    #tensor = torch.tensor([0,1,2,3])
+    s = time.time()
     #print("Split Tensor:",split_tensor)
     #for j in range(len(split_tensor)):
-    print("Rank",rank,"Before",tensor)
+    #print("Rank",rank,"Before",tensor)
     bde_reduce_scatter(rank, tensor, 0, len(tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
-    split_tensor = list(torch.split(tensor, int(TENSOR_SIZE/num_nodes))) # Split tensor into chunks based on number of participating nodes
-    print("Rank",rank,"After Reduce Scatter",tensor)
+    #split_tensor = list(torch.split(tensor, int(tensor_size/num_nodes))) # Split tensor into chunks based on number of participating nodes
+    #print("Rank",rank,"After Reduce Scatter",tensor)
     bde_all_gather(rank, tensor, 0, len(tensor)-1, 0 , num_nodes-1)
-    print("Rank",rank,"After All Gather",tensor)
+    #print("Rank",rank,"After All Gather",tensor)
     #split_tensor[rank] = bde_reduce_scatter(rank, tensor, 0, len(tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
     #print("x[",rank,"] = ",split_tensor[rank])
-    #e = time.time()
-    #print("Finished BDE reduce scatter in ", e-s, " seconds")
+    e = time.time()
+    print("Rank",rank,"finished BDE all reduce in ", e-s, " seconds")
 
 # BDE Reduce-Scatter
 

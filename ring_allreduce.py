@@ -24,9 +24,10 @@ def main(tensor_size):
     # Create send and receive buffers
     zero_buffer = torch.zeros(tensor_size)
     recv_buffers = list(zero_buffer.split(int(tensor_size/world_size)))
-    s = time.time()
+    total_time = 0
     # Reduce-scatter loop
     for i in range(1, world_size):
+        s = time.time()
         if (rank % 2) == 0:
             # Send a tensor to the previous machine
             #print((rank + i) % world_size)
@@ -40,25 +41,29 @@ def main(tensor_size):
 
             # Send a tensor to the previous machine
             dist.send(t[(rank + i) % world_size], dst=(rank + world_size - 1) % world_size)
+        e = time.time()
+        total_time += e - s
         # Accumulate value in t. At the end of the for loop, t will hold the reduced value
         t[(rank + i + 1) % world_size] += recv_buffers[i-1]
     # All-gather loop
     for i in range(1, world_size):
+        s = time.time()
         if (rank % 2) == 0:
             # Send a tensor to the next machine
             dist.send(t[(rank + 1 - i + world_size) % world_size], dst=(rank + 1) % world_size)
 
             # Receive a tensor from the previous machine
             dist.recv(t[(rank - i + world_size) % world_size], src=(rank + world_size - 1) % world_size)
-            else:
+        else:
             # Receive a tensor from the previous machine
             dist.recv(t[(rank - i + world_size) % world_size], src=(rank + world_size - 1) % world_size)
 
             # Send a tensor to the next machine
             dist.send(t[(rank + 1 - i + world_size) % world_size], dst=(rank + 1) % world_size)
-    e = time.time()
-    print("Finished allreduce in ", e-s, " seconds")
-    print(torch.cat(t))
+        e = time.time()
+        total_time += e - s
+    print("Rank", rank, "finished allreduce in ", total_time, " seconds")
+    #print(torch.cat(t))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
