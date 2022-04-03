@@ -8,8 +8,6 @@ from torch import distributed as dist
 
 DEVICE = "cpu"
 #TENSOR_SIZE = 4
-send_time = 0.0
-receive_time = 0.0
 
 def init_process(master_ip, rank, world_size):
     dist.init_process_group(backend="gloo",
@@ -22,7 +20,7 @@ def main(rank, num_nodes, tensor_size):
     tensor = torch.rand(tensor_size)
     #tensor = torch.arange(TENSOR_SIZE) # TBD: Easier to test with regular integers t = torch.rand(TENSOR_SIZE)
     #tensor = torch.tensor([0,1,2,3])
-    #s = time.time()
+    s = time.time()
     #print("Split Tensor:",split_tensor)
     #for j in range(len(split_tensor)):
     #print("Rank",rank,"Before",tensor)
@@ -33,15 +31,14 @@ def main(rank, num_nodes, tensor_size):
     #print("Rank",rank,"After All Gather",tensor)
     #split_tensor[rank] = bde_reduce_scatter(rank, tensor, 0, len(tensor)-1, 0, num_nodes-1) # rank-1, rank+1)
     #print("x[",rank,"] = ",split_tensor[rank])
-    #e = time.time()
-    print("Rank",rank,"finished BDE all reduce in send_time", send_time, " seconds", "and receive_time", receive_time," seconds")
+    e = time.time()
+    print("Rank",rank,"finished BDE all reduce in ", e-s, " seconds")
 
 # BDE Reduce-Scatter
 
 def bde_reduce_scatter(rank, x, tensor_left, tensor_right, rank_left, rank_right):
     #print("Rank",rank,"x",x,"tensor_left",tensor_left,"tensor_right",tensor_right,"rank_left",rank_left,"rank_right",rank_right)
     #print("Rank:",rank)
-    global send_time, receive_time
     if rank_left == rank_right:
         #val = x[(rank * TENSOR_SIZE)//dist.get_world_size():((rank + 1)*TENSOR_SIZE//dist.get_world_size())]
         return
@@ -57,31 +54,19 @@ def bde_reduce_scatter(rank, x, tensor_left, tensor_right, rank_left, rank_right
     #print("Partner of",rank,"is",partner)
     if rank <= rank_mid:
         #print("Rank",rank,"is sending",x[tensor_mid+1:tensor_right+1],"of len",len(x[tensor_mid+1:tensor_right+1]))
-        ss = time.time()
         dist.send(x[tensor_mid+1:tensor_right+1], dst=partner)
-        es = time.time()
-        send_time += es - ss
         #print("Rank",rank,"Sending",x[tensor_mid+1:tensor_right+1])
         recv_buffer =  copy.deepcopy(x[tensor_left:tensor_mid+1]) #torch.zeros(len(x[tensor_left:tensor_mid+1]))
-        sr = time.time()
         dist.recv(recv_buffer, src=partner)
-        er = time.time()
-        receive_time += er - sr
         #print("Rank",rank,"Recv Buf",recv_buffer)
         x[tensor_left:tensor_mid+1] = x[tensor_left:tensor_mid+1] + recv_buffer
     else:
         recv_buffer = copy.deepcopy(x[tensor_mid+1:tensor_right+1]) #torch.zeros(len(x[tensor_mid+1:tensor_right+1]))
         #print("Rank",rank,"is expected to receive len",len(x[tensor_mid+1:tensor_right+1]))
-        sr = time.time()
         dist.recv(recv_buffer, src=partner)
-        er = time.time()
-        receive_time += er - sr
         #print("Rank",rank,"Recv Buf",recv_buffer)
         x[tensor_mid+1:tensor_right+1] = x[tensor_mid+1:tensor_right+1] + recv_buffer
-        ss = time.time()
         dist.send(x[tensor_left:tensor_mid+1], dst=partner)
-        es = time.time()
-        send_time += es - ss
         #print("Rank",rank,"Sending",x[tensor_left:tensor_mid+1])
 
     if rank <= rank_mid:
@@ -92,7 +77,6 @@ def bde_reduce_scatter(rank, x, tensor_left, tensor_right, rank_left, rank_right
 # BDE AllGather
 
 def bde_all_gather(rank, x, tensor_left, tensor_right, rank_left, rank_right):
-    global send_time, receive_time
     #print("Rank",rank,"x",x,"tensor_left",tensor_left,"tensor_right",tensor_right,"rank_left",rank_left,"rank_right",rank_right)
     if rank_left == rank_right:
         return
@@ -115,28 +99,16 @@ def bde_all_gather(rank, x, tensor_left, tensor_right, rank_left, rank_right):
 
     if rank <= rank_mid:
         #print("Rank",rank,"sending",x[tensor_left:tensor_mid+1],"from",x)
-        ss = time.time()
         dist.send(x[tensor_left:tensor_mid+1], dst=partner)
-        es = time.time()
-        send_time += es - ss
         recv_buffer =  x[tensor_mid+1:tensor_right+1]
-        sr = time.time()
         dist.recv(recv_buffer, src=partner)
-        er = time.time()
-        receive_time += er - sr
         #print("Rank",rank,"receiving",recv_buffer)
     else:
         recv_buffer = x[tensor_left:tensor_mid+1]
-        sr = time.time()
         dist.recv(recv_buffer, src=partner)
-        er = time.time()
-        receive_time += er - sr
         #print("Rank",rank,"receiving",recv_buffer)
         #print("Rank",rank,"sending",x[tensor_left:tensor_mid+1],"from",x)
-        ss = time.time()
         dist.send(x[tensor_mid+1:tensor_right+1], dst=partner)
-        es = time.time()
-        send_time += es - ss
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
