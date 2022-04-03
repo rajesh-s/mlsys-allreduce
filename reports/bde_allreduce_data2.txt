@@ -1,0 +1,38 @@
+ ./run_bde.sh -t 2560000 -n 2
+ 
+Rank 0 finished BDE all reduce in  0.17001652717590332  seconds
+Rank 1 finished BDE all reduce in  0.15404295921325684  seconds
+
+./run_bde.sh -t 2560000 -n 4
+Rank 3 finished BDE all reduce in  0.6848702430725098  seconds
+Rank 1 finished BDE all reduce in  0.7091119289398193  seconds
+Rank 0 finished BDE all reduce in  0.9875800609588623  seconds
+Rank 2 finished BDE all reduce in  0.974656343460083  second
+
+./run_bde.sh -t 2560000 -n 8
+Rank 6 finished BDE all reduce in  0.6636106967926025  seconds
+Rank 2 finished BDE all reduce in  0.6860291957855225  seconds
+Rank 7 finished BDE all reduce in  0.757256269454956  seconds
+Rank 3 finished BDE all reduce in  0.8027548789978027  seconds
+Rank 1 finished BDE all reduce in  0.8382415771484375  seconds
+Rank 5 finished BDE all reduce in  0.7971975803375244  seconds
+Rank 0 finished BDE all reduce in  0.8748829364776611  seconds
+Rank 4 finished BDE all reduce in  0.8327999114990234  seconds
+
+./run_bde.sh -t 2560000 -n 16
+Rank 14 finished BDE all reduce in  1.0946552753448486  seconds
+Rank 0 finished BDE all reduce in  1.2415087223052979  seconds
+Rank 6 finished BDE all reduce in  1.177980661392212  seconds
+Rank 8 finished BDE all reduce in  1.183337688446045  seconds
+Rank 15 finished BDE all reduce in  1.129662275314331  seconds
+Rank 10 finished BDE all reduce in  1.175513505935669  seconds
+Rank 12 finished BDE all reduce in  1.1734669208526611  seconds
+Rank 7 finished BDE all reduce in  1.205399751663208  seconds
+Rank 9 finished BDE all reduce in  1.203153371810913  seconds
+Rank 2 finished BDE all reduce in  1.2692317962646484  seconds
+Rank 1 finished BDE all reduce in  1.2950470447540283  seconds
+Rank 4 finished BDE all reduce in  1.2644767761230469  seconds
+Rank 13 finished BDE all reduce in  1.1935203075408936  seconds
+Rank 5 finished BDE all reduce in  1.2817835807800293  seconds
+Rank 11 finished BDE all reduce in  1.2606775760650635  seconds
+Rank 3 finished BDE all reduce in  1.3267569541931152  seconds
