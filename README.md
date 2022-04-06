@@ -1,4 +1,6 @@
-# Assignment 2: Collective Communication
+# Collective Communication: All Reduce
+
+[CS839: Adv. ML Systems Spring 2022](https://pages.cs.wisc.edu/~shivaram/cs839-sp22/)
 
 ## Background
 
