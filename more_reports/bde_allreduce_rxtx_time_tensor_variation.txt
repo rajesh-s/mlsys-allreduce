@@ -1,0 +1,107 @@
+ ./run_bde.sh -n 16 -t 256
+Rank 15 finished BDE all reduce in send_time 0.0023145675659179688  seconds and receive_time 0.010715007781982422  seconds
+Rank 7 finished BDE all reduce in send_time 0.0672612190246582  seconds and receive_time 0.008800029754638672  seconds
+Rank 11 finished BDE all reduce in send_time 0.035659074783325195  seconds and receive_time 0.011123180389404297  seconds
+Rank 14 finished BDE all reduce in send_time 0.0035321712493896484  seconds and receive_time 0.011711835861206055  seconds
+Rank 13 finished BDE all reduce in send_time 0.01322627067565918  seconds and receive_time 0.011382579803466797  seconds
+Rank 10 finished BDE all reduce in send_time 0.04724526405334473  seconds and receive_time 0.011322498321533203  seconds
+Rank 0 finished BDE all reduce in send_time 0.15220284461975098  seconds and receive_time 0.009470701217651367  seconds
+Rank 3 finished BDE all reduce in send_time 0.09904241561889648  seconds and receive_time 0.009247779846191406  seconds
+Rank 6 finished BDE all reduce in send_time 0.07944679260253906  seconds and receive_time 0.008177757263183594  seconds
+Rank 9 finished BDE all reduce in send_time 0.05785036087036133  seconds and receive_time 0.011191844940185547  seconds
+Rank 12 finished BDE all reduce in send_time 0.02474498748779297  seconds and receive_time 0.011492729187011719  seconds
+Rank 5 finished BDE all reduce in send_time 0.10112214088439941  seconds and receive_time 0.009604930877685547  seconds
+Rank 2 finished BDE all reduce in send_time 0.12877750396728516  seconds and receive_time 0.008826255798339844  seconds
+Rank 8 finished BDE all reduce in send_time 0.07614469528198242  seconds and receive_time 0.01158905029296875  seconds
+Rank 4 finished BDE all reduce in send_time 0.08674454689025879  seconds and receive_time 0.009168148040771484  seconds
+Rank 1 finished BDE all reduce in send_time 0.13969779014587402  seconds and receive_time 0.008720874786376953  seconds
+ 
+./run_bde.sh -n 16 -t 2560
+Rank 15 finished BDE all reduce in send_time 0.0021467208862304688  seconds and receive_time 0.012583017349243164  seconds
+Rank 7 finished BDE all reduce in send_time 0.06774640083312988  seconds and receive_time 0.012641429901123047  seconds
+Rank 14 finished BDE all reduce in send_time 0.003185749053955078  seconds and receive_time 0.012732505798339844  seconds
+Rank 13 finished BDE all reduce in send_time 0.013532161712646484  seconds and receive_time 0.012465715408325195  seconds
+Rank 10 finished BDE all reduce in send_time 0.047720909118652344  seconds and receive_time 0.012222528457641602  seconds
+Rank 2 finished BDE all reduce in send_time 0.13962578773498535  seconds and receive_time 0.00930929183959961  seconds
+Rank 11 finished BDE all reduce in send_time 0.03623652458190918  seconds and receive_time 0.012682199478149414  seconds
+Rank 5 finished BDE all reduce in send_time 0.09459853172302246  seconds and receive_time 0.013665437698364258  seconds
+Rank 9 finished BDE all reduce in send_time 0.05917930603027344  seconds and receive_time 0.012820959091186523  seconds
+Rank 12 finished BDE all reduce in send_time 0.02471184730529785  seconds and receive_time 0.012198448181152344  seconds
+Rank 3 finished BDE all reduce in send_time 0.09931063652038574  seconds and receive_time 0.012525081634521484  seconds
+Rank 6 finished BDE all reduce in send_time 0.08020281791687012  seconds and receive_time 0.007798194885253906  seconds
+Rank 0 finished BDE all reduce in send_time 0.1527848243713379  seconds and receive_time 0.01075601577758789  seconds
+Rank 8 finished BDE all reduce in send_time 0.08782792091369629  seconds and receive_time 0.012430906295776367  seconds
+Rank 4 finished BDE all reduce in send_time 0.09357690811157227  seconds and receive_time 0.010253429412841797  seconds
+Rank 1 finished BDE all reduce in send_time 0.15029096603393555  seconds and receive_time 0.011973381042480469  seconds
+
+./run_bde.sh -n 16 -t 25600
+Rank 15 finished BDE all reduce in send_time 0.00390625  seconds and receive_time 0.01648116111755371  seconds
+Rank 14 finished BDE all reduce in send_time 0.00469517707824707  seconds and receive_time 0.017017602920532227  seconds
+Rank 13 finished BDE all reduce in send_time 0.016590118408203125  seconds and receive_time 0.016857385635375977  seconds
+Rank 10 finished BDE all reduce in send_time 0.04237031936645508  seconds and receive_time 0.017328977584838867  seconds
+Rank 12 finished BDE all reduce in send_time 0.02051830291748047  seconds and receive_time 0.01697254180908203  seconds
+Rank 7 finished BDE all reduce in send_time 0.06234455108642578  seconds and receive_time 0.01730203628540039  seconds
+Rank 11 finished BDE all reduce in send_time 0.030855178833007812  seconds and receive_time 0.018131017684936523  seconds
+Rank 9 finished BDE all reduce in send_time 0.053336381912231445  seconds and receive_time 0.018152713775634766  seconds
+Rank 5 finished BDE all reduce in send_time 0.09096002578735352  seconds and receive_time 0.016903162002563477  seconds
+Rank 4 finished BDE all reduce in send_time 0.0896906852722168  seconds and receive_time 0.017148971557617188  seconds
+Rank 6 finished BDE all reduce in send_time 0.07448792457580566  seconds and receive_time 0.015657663345336914  seconds
+Rank 2 finished BDE all reduce in send_time 0.12590384483337402  seconds and receive_time 0.016008377075195312  seconds
+Rank 8 finished BDE all reduce in send_time 0.0839695930480957  seconds and receive_time 0.018386125564575195  seconds
+Rank 0 finished BDE all reduce in send_time 0.15096306800842285  seconds and receive_time 0.014561891555786133  seconds
+Rank 3 finished BDE all reduce in send_time 0.10231208801269531  seconds and receive_time 0.016885042190551758  seconds
+Rank 1 finished BDE all reduce in send_time 0.13815879821777344  seconds and receive_time 0.01529550552368164  seconds
+
+./run_bde.sh -n 16 -t 256000
+Rank 15 finished BDE all reduce in send_time 0.021889925003051758  seconds and receive_time 0.0870506763458252  seconds
+Rank 13 finished BDE all reduce in send_time 0.04113149642944336  seconds and receive_time 0.08194160461425781  seconds
+Rank 12 finished BDE all reduce in send_time 0.05649137496948242  seconds and receive_time 0.07243108749389648  seconds
+Rank 14 finished BDE all reduce in send_time 0.03217768669128418  seconds and receive_time 0.06948304176330566  seconds
+Rank 10 finished BDE all reduce in send_time 0.09357237815856934  seconds and receive_time 0.058768510818481445  seconds
+Rank 7 finished BDE all reduce in send_time 0.09579253196716309  seconds and receive_time 0.06846928596496582  seconds
+Rank 5 finished BDE all reduce in send_time 0.1180112361907959  seconds and receive_time 0.0737299919128418  seconds
+Rank 11 finished BDE all reduce in send_time 0.04773521423339844  seconds and receive_time 0.08773493766784668  seconds
+Rank 8 finished BDE all reduce in send_time 0.10101962089538574  seconds and receive_time 0.058719635009765625  seconds
+Rank 9 finished BDE all reduce in send_time 0.07966208457946777  seconds and receive_time 0.08152341842651367  seconds
+Rank 4 finished BDE all reduce in send_time 0.1177971363067627  seconds and receive_time 0.0691072940826416  seconds
+Rank 6 finished BDE all reduce in send_time 0.11046981811523438  seconds and receive_time 0.07000541687011719  seconds
+Rank 0 finished BDE all reduce in send_time 0.16681194305419922  seconds and receive_time 0.07248830795288086  seconds
+Rank 3 finished BDE all reduce in send_time 0.12848353385925293  seconds and receive_time 0.07626652717590332  seconds
+Rank 2 finished BDE all reduce in send_time 0.1715412139892578  seconds and receive_time 0.06300044059753418  seconds
+Rank 1 finished BDE all reduce in send_time 0.17679691314697266  seconds and receive_time 0.07293915748596191  seconds
+
+./run_bde.sh -n 16 -t 2560000
+Rank 14 finished BDE all reduce in send_time 0.5017404556274414  seconds and receive_time 0.4270029067993164  seconds
+Rank 6 finished BDE all reduce in send_time 0.5560483932495117  seconds and receive_time 0.46198534965515137  seconds
+Rank 15 finished BDE all reduce in send_time 0.41531848907470703  seconds and receive_time 0.5408022403717041  seconds
+Rank 7 finished BDE all reduce in send_time 0.48871374130249023  seconds and receive_time 0.5268940925598145  seconds
+Rank 11 finished BDE all reduce in send_time 0.38438940048217773  seconds and receive_time 0.6530604362487793  seconds
+Rank 3 finished BDE all reduce in send_time 0.5292646884918213  seconds and receive_time 0.6044538021087646  seconds
+Rank 12 finished BDE all reduce in send_time 0.45717430114746094  seconds and receive_time 0.6328322887420654  seconds
+Rank 4 finished BDE all reduce in send_time 0.7350451946258545  seconds and receive_time 0.3858661651611328  seconds
+Rank 10 finished BDE all reduce in send_time 0.6342053413391113  seconds and receive_time 0.46697211265563965  seconds
+Rank 2 finished BDE all reduce in send_time 0.604248046875  seconds and receive_time 0.6160290241241455  seconds
+Rank 9 finished BDE all reduce in send_time 0.6956250667572021  seconds and receive_time 0.44272589683532715  seconds
+Rank 13 finished BDE all reduce in send_time 0.2961430549621582  seconds and receive_time 0.7728879451751709  seconds
+Rank 5 finished BDE all reduce in send_time 0.6620242595672607  seconds and receive_time 0.5362048149108887  seconds
+Rank 0 finished BDE all reduce in send_time 0.63942551612854  seconds and receive_time 0.5811934471130371  seconds
+Rank 1 finished BDE all reduce in send_time 0.5471265316009521  seconds and receive_time 0.6630537509918213  seconds
+Rank 8 finished BDE all reduce in send_time 0.6219611167907715  seconds and receive_time 0.562406063079834  seconds
+
+./run_bde.sh -n 16 -t 25600000
+Rank 13 finished BDE all reduce in send_time 4.63168478012085  seconds and receive_time 3.8008806705474854  seconds
+Rank 5 finished BDE all reduce in send_time 4.2445127964019775  seconds and receive_time 4.269080400466919  seconds
+Rank 12 finished BDE all reduce in send_time 5.590780735015869  seconds and receive_time 3.083956718444824  seconds
+Rank 14 finished BDE all reduce in send_time 2.7670738697052  seconds and receive_time 5.924498796463013  seconds
+Rank 4 finished BDE all reduce in send_time 4.381227254867554  seconds and receive_time 4.447988986968994  seconds
+Rank 6 finished BDE all reduce in send_time 5.791947603225708  seconds and receive_time 3.0157127380371094  seconds
+Rank 15 finished BDE all reduce in send_time 3.8713858127593994  seconds and receive_time 4.909131288528442  seconds
+Rank 7 finished BDE all reduce in send_time 4.856276035308838  seconds and receive_time 3.9477591514587402  seconds
+Rank 9 finished BDE all reduce in send_time 5.3705291748046875  seconds and receive_time 3.635301351547241  seconds
+Rank 1 finished BDE all reduce in send_time 4.873033046722412  seconds and receive_time 4.175505876541138  seconds
+Rank 0 finished BDE all reduce in send_time 5.218852519989014  seconds and receive_time 3.97615909576416  seconds
+Rank 11 finished BDE all reduce in send_time 4.477365970611572  seconds and receive_time 4.6466193199157715  seconds
+Rank 8 finished BDE all reduce in send_time 5.064613580703735  seconds and receive_time 4.058387994766235  seconds
+Rank 3 finished BDE all reduce in send_time 5.607374429702759  seconds and receive_time 3.5793213844299316  seconds
+Rank 10 finished BDE all reduce in send_time 3.930824041366577  seconds and receive_time 5.478101968765259  seconds
+Rank 2 finished BDE all reduce in send_time 6.70175313949585  seconds and receive_time 2.8503785133361816  seconds
